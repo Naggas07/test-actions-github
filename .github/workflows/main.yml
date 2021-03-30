@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Deploy
 
 on:
@@ -12,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: CDNievas/heroku-action@v1.0 # This is the action
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_email: ${{secrets.EMAIL_HEROKU}}
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "test-actions-github"
-          branch: "origin/master"
           procfile: "web: npm start"
-          dynamicFiles: false
