@@ -1,9 +1,10 @@
-name: Deploy
+name: Node.js CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
 
 jobs:
   build:
@@ -17,13 +18,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
-          with:
-          node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_email: ${{secrets.EMAIL_HEROKU}}
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "test-actions-github"
-          procfile: "web: npm start"
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
