@@ -17,3 +17,5 @@ jobs:
           heroku_email: ${{secrets.EMAIL_HEROKU}}
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "test-actions-github"
+          branch: "master"
+          procfile: "web: npm start"
