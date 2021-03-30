@@ -36,7 +36,6 @@ jobs:
           heroku_email: ${{secrets.EMAIL_HEROKU}}
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-          branch: "origin/master"
           procfile: "web: npm start"
           dynamicFiles: false
           justlogin: true
