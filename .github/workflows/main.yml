@@ -36,3 +36,4 @@ jobs:
           branch: "origin/master"
           procfile: "web: npm start"
           dynamicFiles: false
+          justlogin: true
