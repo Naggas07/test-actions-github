@@ -19,3 +19,4 @@ jobs:
           heroku_app_name: "test-actions-github"
           branch: "master"
           procfile: "web: npm start"
+          dynamicFiles: false
