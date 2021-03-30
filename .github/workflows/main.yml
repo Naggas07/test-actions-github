@@ -27,6 +27,9 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
 
+      - name: test fetch
+        run: git fetch --all --unshallow
+
       - name: deploy
         uses: CDNievas/heroku-action@v1.0 # This is the action
         with:
